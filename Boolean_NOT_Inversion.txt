@@ -1,0 +1,6 @@
+.DATA
+    byteVal DB 10101010b   ; Input byte
+.CODE
+    MOV AL, byteVal        ; Load the byte
+    NOT AL                 ; Invert all bits
+    ; AL now contains 01010101b

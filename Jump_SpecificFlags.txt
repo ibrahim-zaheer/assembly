@@ -1,0 +1,11 @@
+.DATA
+    result DW 0
+.CODE
+    MOV AX, 5
+    CMP AX, 5              ; Compare AX with 5
+    JE EQUAL               ; Jump if AX == 5
+    MOV result, 1          ; Code if not equal
+    JMP END
+EQUAL:
+    MOV result, 2          ; Code if equal
+END:

@@ -1,0 +1,9 @@
+.DATA
+    num1 DW -10
+    num2 DW 5
+.CODE
+    MOV AX, num1
+    CMP AX, num2           ; Compare num1 and num2
+    JL LESS                ; Jump if num1 < num2 (signed)
+LESS:
+    ; Code for num1 < num2

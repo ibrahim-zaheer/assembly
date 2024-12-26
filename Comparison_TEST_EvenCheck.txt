@@ -1,0 +1,8 @@
+.DATA
+    num DW 6               ; Input number
+.CODE
+    MOV AX, num            ; Load the number
+    TEST AX, 1             ; Check the least significant bit
+    JZ EVEN                ; Jump if even (ZF = 1)
+EVEN:
+    ; Code for even number

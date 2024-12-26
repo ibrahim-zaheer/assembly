@@ -1,0 +1,12 @@
+.DATA
+    array DW 5, 0, 10, 20, 0, 30
+.CODE
+    LEA SI, array               ; Point to the array
+    MOV CX, 6                   ; Number of elements
+LOOP_CHECK:
+    CMP WORD PTR [SI], 0        ; Check if element is 0
+    JNZ NOT_ZERO
+    ; Code for zero value
+NOT_ZERO:
+    ADD SI, 2                   ; Move to next element
+    LOOP LOOP_CHECK

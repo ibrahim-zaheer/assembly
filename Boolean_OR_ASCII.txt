@@ -1,0 +1,6 @@
+.DATA
+    num DB 6               ; Input number
+.CODE
+    MOV AL, num            ; Load the number
+    OR AL, 00110000b       ; Convert to ASCII ('6')
+    ; AL now contains '6'

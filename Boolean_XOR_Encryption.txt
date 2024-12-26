@@ -1,0 +1,10 @@
+.DATA
+    char DB 'X'            ; Character to encrypt
+    key DB 5               ; Encryption key
+.CODE
+    MOV AL, char           ; Load the character
+    XOR AL, key            ; Encrypt
+    ; AL now contains the encrypted value
+
+    XOR AL, key            ; Decrypt
+    ; AL now contains 'X' again

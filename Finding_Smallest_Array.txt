@@ -1,0 +1,17 @@
+.DATA
+    array DW 5, 10, 15, 20, 25  ; Array of numbers
+    min DW 0                    ; To store the minimum value
+.CODE
+    LEA SI, array               ; Point to the array
+    MOV CX, 5                   ; Number of elements
+    MOV AX, [SI]                ; Load the first element
+    MOV min, AX                 ; Assume the first is the smallest
+    ADD SI, 2                   ; Move to the next element
+FIND_MIN:
+    CMP AX, [SI]                ; Compare current min with [SI]
+    JBE NEXT                    ; Skip if AX <= [SI]
+    MOV AX, [SI]                ; Update min if [SI] < AX
+    MOV min, AX
+NEXT:
+    ADD SI, 2                   ; Move to the next element
+    LOOP FIND_MIN               ; Repeat for all elements

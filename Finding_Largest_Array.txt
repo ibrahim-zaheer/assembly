@@ -1,0 +1,17 @@
+.DATA
+    array DW 5, 10, 15, 20, 25  ; Array of numbers
+    max DW 0                    ; To store the maximum value
+.CODE
+    LEA SI, array               ; Point to the array
+    MOV CX, 5                   ; Number of elements
+    MOV AX, [SI]                ; Load the first element
+    MOV max, AX                 ; Assume the first is the largest
+    ADD SI, 2                   ; Move to the next element
+FIND_MAX:
+    CMP AX, [SI]                ; Compare current max with [SI]
+    JAE NEXT                    ; Skip if AX >= [SI]
+    MOV AX, [SI]                ; Update max if [SI] > AX
+    MOV max, AX
+NEXT:
+    ADD SI, 2                   ; Move to the next element
+    LOOP FIND_MAX               ; Repeat for all elements

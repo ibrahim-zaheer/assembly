@@ -1,0 +1,10 @@
+.DATA
+    num1 DW 10             ; First number
+    num2 DW 20             ; Second number
+.CODE
+    MOV AX, num1           ; Load the first number
+    CMP AX, num2           ; Compare AX and num2
+    JG NUM1_IS_GREATER     ; Jump if num1 > num2
+    ; Continue here if num1 <= num2
+NUM1_IS_GREATER:
+    ; Code for num1 > num2

@@ -1,0 +1,6 @@
+.DATA
+    char DB 'a'            ; Input character
+.CODE
+    MOV AL, char           ; Load the character
+    AND AL, 11011111b      ; Convert to uppercase (clear bit 5)
+    ; AL now contains 'A'
