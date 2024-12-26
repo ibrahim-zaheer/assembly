@@ -1,0 +1,15 @@
+.DATA
+    String1 DB 'Assembly', 0
+    String2 DB 'Assembly', 0
+
+.CODE
+    LEA SI, String1          ; Point SI to the first string
+    LEA DI, String2          ; Point DI to the second string
+    MOV CX, 8                ; Length of the strings (including null)
+    CLD                      ; Clear Direction Flag (move forward)
+    REPE CMPSB               ; Compare bytes until mismatch or CX = 0
+
+    JNZ STRINGS_NOT_EQUAL    ; If not zero, strings are not equal
+    ; Strings are equal
+STRINGS_NOT_EQUAL:
+    ; Strings are not equal

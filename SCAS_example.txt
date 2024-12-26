@@ -1,0 +1,15 @@
+.DATA
+    MyString DB 'Hello, World!', 0
+    SearchChar DB 'W'
+
+.CODE
+    LEA DI, MyString         ; Point DI to the start of the string
+    MOV AL, SearchChar       ; Load the character to search into AL
+    MOV CX, 13               ; Length of the string
+    CLD                      ; Clear Direction Flag
+    REPNE SCASB              ; Search for AL in [DI]
+
+    JNZ CHAR_NOT_FOUND       ; If ZF is not set, the character was not found
+    ; Character found
+CHAR_NOT_FOUND:
+    ; Character not found

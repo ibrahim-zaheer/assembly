@@ -1,0 +1,10 @@
+.DATA
+    SourceString DB 'Hello, World!', 0 ; Source string with null termination
+    Destination DB 20 DUP (?)         ; Empty buffer for the destination
+
+.CODE
+    LEA SI, SourceString     ; Point SI to the source
+    LEA DI, Destination      ; Point DI to the destination
+    MOV CX, 13               ; Number of bytes to copy ('Hello, World!' + null)
+    CLD                      ; Clear Direction Flag (move forward)
+    REP MOVSB                ; Copy CX bytes from [SI] to [DI]

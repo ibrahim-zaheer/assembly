@@ -1,0 +1,12 @@
+.DATA
+    MyString DB 'Hello, World!', 0
+
+.CODE
+    LEA SI, MyString         ; Point SI to the string
+    MOV CX, 13               ; Length of the string
+    CLD                      ; Clear Direction Flag
+
+LOAD_LOOP:
+    LODSB                    ; Load byte at [SI] into AL
+    ; Do something with AL (e.g., print it)
+    LOOP LOAD_LOOP           ; Repeat until CX = 0

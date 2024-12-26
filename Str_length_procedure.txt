@@ -1,0 +1,19 @@
+.DATA
+    MyString DB 'Hello, World!', 0
+
+.CODE
+Str_length PROC
+    LEA SI, MyString         ; Point SI to the string
+    MOV CX, 0                ; Initialize length counter
+
+LENGTH_LOOP:
+    LODSB                    ; Load a byte from the string
+    CMP AL, 0                ; Check for null terminator
+    JE LENGTH_DONE           ; End of string
+    INC CX                   ; Increment counter
+    JMP LENGTH_LOOP
+
+LENGTH_DONE:
+    ; CX now contains the string length
+    RET
+Str_length ENDP

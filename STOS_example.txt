@@ -1,0 +1,9 @@
+.DATA
+    Buffer DB 20 DUP (?)     ; Empty buffer with 20 bytes
+
+.CODE
+    LEA DI, Buffer           ; Point DI to the buffer
+    MOV AL, '*'              ; Character to fill
+    MOV CX, 20               ; Number of bytes to fill
+    CLD                      ; Clear Direction Flag
+    REP STOSB                ; Fill CX bytes in [DI] with AL
